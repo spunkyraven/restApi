@@ -46,16 +46,16 @@ exports.deleteContact = async (req, res) => {
 
 exports.editContact = async (req, res) => {
   try {
-    const r = await Contact.updateOne(
+    const edit = await Contact.updateOne(
       { _id: req.params.id },
       { $set: { ...req.body } }
     );
     console.log(r);
-    if (r.modifiedCount) {
+    if (edit.modifiedCount) {
       return res.send({ msg: "updated" });
     }
     res.send({ msg: "there is no modification" });
   } catch (error) {
-    res.send({ msg: "can not modify it" });
+    res.status(400).send({ msg: "connot edit" });
   }
 };
