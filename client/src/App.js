@@ -17,7 +17,10 @@ function App() {
       <Switch>
         <Route exact path="/" component={Home} />
         <Route path="/contacts" component={ContactList} />
-        <Route path={["/addContact", "/edit/:id"]} component={AddContact} />
+        <Route
+          path={["/addContact", "/editContact/:id"]}
+          component={AddContact}
+        />
         <Route path="/*" component={Error} />
       </Switch>
       <Footer />
